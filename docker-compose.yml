@@ -17,14 +17,13 @@ services:
       - RABBITMQ_URL=amqp://wuzapi:wuzapi@rabbitmq:5672/
       - RABBITMQ_QUEUE=whatsapp_events
     depends_on:
-      db:
-        condition: service_healthy
       rabbitmq:
         condition: service_healthy
     volumes:
       - ./dbdata:/app/dbdata
     networks:
       - wuzapi-network
+      - database
     restart: on-failure
 
 
@@ -52,6 +51,8 @@ services:
 networks:
   wuzapi-network:
     driver: bridge
+  database:
+    external: true
 
 volumes:
   db_data:
