@@ -13,4 +13,4 @@ SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # minute hour day month weekday command
-0 0 * * * cd /workspaces/wuzapi && /usr/bin/env bash /workspaces/wuzapi/backups/backup.sh >> /workspaces/wuzapi/backups/backup.log 2>&1
+0 0 * * * cd /home/ubuntu/wuzapi && /usr/bin/env bash /home/ubuntu/wuzapi/backups/backup.sh >> /home/ubuntu/wuzapi/backups/backup.log 2>&1
