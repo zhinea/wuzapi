@@ -1,0 +1,16 @@
+# Cron example for automatic WuzAPI SQLite backup to Cloudflare R2
+# Runs every day at 00:00 (midnight)
+#
+# Usage:
+#   crontab backups/cron.example
+#
+# Make sure these are prepared first:
+# 1) ./backups/backup.sh is executable
+# 2) ../.env contains valid R2_* variables
+# 3) Docker daemon is running
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# minute hour day month weekday command
+0 0 * * * cd /workspaces/wuzapi && /usr/bin/env bash /workspaces/wuzapi/backups/backup.sh >> /workspaces/wuzapi/backups/backup.log 2>&1
